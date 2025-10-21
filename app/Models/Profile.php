@@ -14,4 +14,11 @@ class Profile extends Model
         'image',
         'bio',
     ];
+
+    // link images to profile
+
+    public function getImageUrlAttribute()
+    {
+        return asset('storage/profiles/' . $this->image);
+    }
 }
