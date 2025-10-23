@@ -4,8 +4,8 @@
 
 @section('content')
     @include('sections.hero')
-    {{-- @include('sections.experience')
-    @include('sections.education_organization')
+    @include('sections.experience')
+    {{-- @include('sections.education_organization')
     @include('sections.achievement')
     @include('sections.skill')
     @include('sections.project') --}}

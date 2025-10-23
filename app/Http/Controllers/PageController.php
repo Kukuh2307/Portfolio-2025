@@ -9,6 +9,7 @@ class PageController extends Controller
 {
     public function index()
     {
+        $experiences = \App\Models\Experience::orderBy('start_date', 'desc')->get();
         $profile = \App\Models\Profile::first();
         $developer_name = $profile->name;
         $developer_title = $profile->title;
@@ -18,7 +19,8 @@ class PageController extends Controller
             'developer_name',
             'developer_title',
             'profile_image',
-            'developer_bio'
+            'developer_bio',
+            'experiences'
         ));
     }
 }
