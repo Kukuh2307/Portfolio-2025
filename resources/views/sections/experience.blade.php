@@ -18,8 +18,8 @@
                     <div class="timeline-item flex flex-col md:flex-row md:w-full md:max-w-4xl">
                         <!-- Bagian Kiri (untuk item genap) -->
                         @if($index % 2 == 0)
-                        <div class="md:w-1/2 md:pr-12 md:text-right">
-                            <div class="glass-effect rounded-lg p-6 border-l-2 md:border-l-0 md:border-r-2 border-blue-500 hover:transform hover:-translate-y-1 transition-all duration-300">
+                                                <div class="md:w-1/2 md:pl-12">
+                            <div class="glass-effect rounded-lg p-6 border-l-2 border-blue-500 hover:transform hover:-translate-y-1 transition-all duration-300">
                                 <h3 class="text-xl font-bold text-blue-500 mb-2">{{ $exp['position'] }}</h3>
                                 <p class="text-gray-300 font-semibold">{{ $exp['company'] }}</p>
                                 <p class="text-sm text-gray-400 mb-4">
