@@ -40,12 +40,24 @@ class AchievementResource extends Resource
                 Forms\Components\TextInput::make('organizer')
                     ->maxLength(255)
                     ->default(null),
-                Forms\Components\Textarea::make('description')
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('link')
+                    Forms\Components\TextInput::make('link')
                     ->maxLength(255)
                     ->default(null),
-                Forms\Components\DatePicker::make('date'),
+                    Forms\Components\DatePicker::make('date'),
+                    Forms\Components\RichEditor::make('description')
+                        ->columnSpanFull()
+                        ->default(null)
+                        ->toolbarButtons([
+                            'bold',
+                            'italic',
+                            'underline',
+                            'strike',
+                            'bulletList',
+                            'orderedList',
+                            'link',
+                            'redo',
+                            'undo'
+                        ]),
             ]);
     }
 

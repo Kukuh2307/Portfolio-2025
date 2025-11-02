@@ -12,7 +12,6 @@ class EducationTableSeeder extends Seeder
      */
     public function run(): void
     {
-        // data
         $educations = [
             [
                 'degree' => 'Teknik Informatika',

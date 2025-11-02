@@ -10,19 +10,7 @@
             <div class="grid md:grid-cols-2 gap-8">
                 @include('partials.education')
                 
-                <!-- Organization Column -->
-                <div>
-                    <h3 class="text-2xl font-bold mb-6 text-accent">Organisasi</h3>
-                    <div class="space-y-4">
-                        <?php foreach($organizations as $org): ?>
-                        <div class="glass-effect rounded-lg p-6 hover-lift" data-aos="fade-up">
-                            <h4 class="text-lg font-bold text-gray-100 mb-1"><?php echo $org['position']; ?></h4>
-                            <p class="text-accent font-semibold"><?php echo $org['organization']; ?></p>
-                            <p class="text-sm text-gray-400"><?php echo $org['year']; ?></p>
-                        </div>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
+                @include('partials.organization')
             </div>
         </div>
     </section>

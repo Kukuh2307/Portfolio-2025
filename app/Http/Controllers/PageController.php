@@ -17,6 +17,7 @@ class PageController extends Controller
         $developer_bio = $profile->bio;
         $organizations = \App\Models\Organization::all();
         $educations = \App\Models\Education::orderBy('start_date', 'desc')->get();
+        $achievements = Achievement::orderBy('date', 'desc')->get();
         return view('pages.index', compact(
             'developer_name',
             'developer_title',
@@ -25,6 +26,7 @@ class PageController extends Controller
             'experiences'
             ,'organizations',
             'educations'
+            ,'achievements'
         ));
     }
 }
