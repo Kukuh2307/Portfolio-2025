@@ -8,19 +8,7 @@
             </h2>
             
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Education Column -->
-                <div>
-                    <h3 class="text-2xl font-bold mb-6 text-accent">Pendidikan</h3>
-                    <div class="space-y-4">
-                        <?php foreach($education as $edu): ?>
-                        <div class="glass-effect rounded-lg p-6 hover-lift" data-aos="fade-up">
-                            <h4 class="text-lg font-bold text-gray-100 mb-1"><?php echo $edu['degree']; ?></h4>
-                            <p class="text-accent font-semibold"><?php echo $edu['institution']; ?></p>
-                            <p class="text-sm text-gray-400"><?php echo $edu['major']; ?> • <?php echo $edu['year']; ?></p>
-                        </div>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
+                @include('partials.education')
                 
                 <!-- Organization Column -->
                 <div>

@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ExperienceResource\Pages;
-use App\Filament\Resources\ExperienceResource\RelationManagers;
-use App\Models\Experience;
+use App\Filament\Resources\AchievementResource\Pages;
+use App\Filament\Resources\AchievementResource\RelationManagers;
+use App\Models\Achievement;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ExperienceResource extends Resource
+class AchievementResource extends Resource
 {
-    protected static ?string $model = Experience::class;
+    protected static ?string $model = Achievement::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -23,30 +23,29 @@ class ExperienceResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('position')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('company')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\DatePicker::make('start_date')
-                    ->default(null),
-                Forms\Components\DatePicker::make('end_date')
-                    ->default(null),
-                Forms\Components\RichEditor::make('description')
-                    ->columnSpanFull()
+                Forms\Components\FileUpload::make('image')
+                    ->image()
+                    ->required()
+                    ->maxSize(2048)
+                    ->directory('achievements')
+                    ->imagePreviewHeight('200px')
+                    ->placeholder('Upload Achievement Image')
+                    ->hint('Maximum file size: 2MB.')
                     ->default(null)
-                    ->toolbarButtons([
-                        'bold',
-                        'italic',
-                        'underline',
-                        'strike',
-                        'bulletList',
-                        'orderedList',
-                        'link',
-                        'redo',
-                        'undo'
-                    ]),
+                    ->dehydrated(fn ($state) => filled($state))
+                    ->columnSpanFull(),
+                Forms\Components\TextInput::make('title')
+                    ->maxLength(255)
+                    ->default(null),
+                Forms\Components\TextInput::make('organizer')
+                    ->maxLength(255)
+                    ->default(null),
+                Forms\Components\Textarea::make('description')
+                    ->columnSpanFull(),
+                Forms\Components\TextInput::make('link')
+                    ->maxLength(255)
+                    ->default(null),
+                Forms\Components\DatePicker::make('date'),
             ]);
     }
 
@@ -54,14 +53,16 @@ class ExperienceResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('position')
+                Tables\Columns\TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('company')
+                Tables\Columns\TextColumn::make('organizer')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('start_date')
+                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\TextColumn::make('link')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('end_date')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('date')
+                    ->date()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -77,7 +78,6 @@ class ExperienceResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),    
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -96,10 +96,10 @@ class ExperienceResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListExperiences::route('/'),
-            'create' => Pages\CreateExperience::route('/create'),
-            'view' => Pages\ViewExperience::route('/{record}'),
-            'edit' => Pages\EditExperience::route('/{record}/edit'),
+            'index' => Pages\ListAchievements::route('/'),
+            'create' => Pages\CreateAchievement::route('/create'),
+            'view' => Pages\ViewAchievement::route('/{record}'),
+            'edit' => Pages\EditAchievement::route('/{record}/edit'),
         ];
     }
 }

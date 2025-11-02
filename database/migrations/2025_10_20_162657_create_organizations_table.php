@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('position')->nullable();
             $table->string('organization')->nullable();
+            $table->text('description')->nullable();
             $table->string('year')->nullable();
             $table->timestamps();
         });

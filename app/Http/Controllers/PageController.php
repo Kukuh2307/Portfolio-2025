@@ -15,12 +15,16 @@ class PageController extends Controller
         $developer_title = $profile->title;
         $profile_image = $profile->image;
         $developer_bio = $profile->bio;
+        $organizations = \App\Models\Organization::all();
+        $educations = \App\Models\Education::orderBy('start_date', 'desc')->get();
         return view('pages.index', compact(
             'developer_name',
             'developer_title',
             'profile_image',
             'developer_bio',
             'experiences'
+            ,'organizations',
+            'educations'
         ));
     }
 }

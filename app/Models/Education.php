@@ -12,6 +12,7 @@ class Education extends Model
         'degree',
         'institution',
         'major',
-        'year',
+        'start_date',
+        'end_date',
     ];
 }

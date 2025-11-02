@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Achievements extends Model
+class Achievement extends Model
 {
-    protected $table = 'achievements';
+    protected $table = 'achievement';
     
     protected $fillable = [
         'title',

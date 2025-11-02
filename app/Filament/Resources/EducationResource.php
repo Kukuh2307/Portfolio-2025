@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ExperienceResource\Pages;
-use App\Filament\Resources\ExperienceResource\RelationManagers;
-use App\Models\Experience;
+use App\Filament\Resources\EducationResource\Pages;
+use App\Filament\Resources\EducationResource\RelationManagers;
+use App\Models\Education;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ExperienceResource extends Resource
+class EducationResource extends Resource
 {
-    protected static ?string $model = Experience::class;
+    protected static ?string $model = Education::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -23,30 +23,17 @@ class ExperienceResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('position')
+                Forms\Components\TextInput::make('degree')
                     ->maxLength(255)
                     ->default(null),
-                Forms\Components\TextInput::make('company')
+                Forms\Components\TextInput::make('institution')
                     ->maxLength(255)
                     ->default(null),
-                Forms\Components\DatePicker::make('start_date')
+                Forms\Components\TextInput::make('major')
+                    ->maxLength(255)
                     ->default(null),
-                Forms\Components\DatePicker::make('end_date')
+                Forms\Components\DatePicker::make('year')
                     ->default(null),
-                Forms\Components\RichEditor::make('description')
-                    ->columnSpanFull()
-                    ->default(null)
-                    ->toolbarButtons([
-                        'bold',
-                        'italic',
-                        'underline',
-                        'strike',
-                        'bulletList',
-                        'orderedList',
-                        'link',
-                        'redo',
-                        'undo'
-                    ]),
             ]);
     }
 
@@ -54,13 +41,13 @@ class ExperienceResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('position')
+                Tables\Columns\TextColumn::make('degree')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('company')
+                Tables\Columns\TextColumn::make('institution')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('start_date')
+                Tables\Columns\TextColumn::make('major')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('end_date')
+                Tables\Columns\TextColumn::make('year')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -77,7 +64,6 @@ class ExperienceResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),    
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -96,10 +82,10 @@ class ExperienceResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListExperiences::route('/'),
-            'create' => Pages\CreateExperience::route('/create'),
-            'view' => Pages\ViewExperience::route('/{record}'),
-            'edit' => Pages\EditExperience::route('/{record}/edit'),
+            'index' => Pages\ListEducation::route('/'),
+            'create' => Pages\CreateEducation::route('/create'),
+            'view' => Pages\ViewEducation::route('/{record}'),
+            'edit' => Pages\EditEducation::route('/{record}/edit'),
         ];
     }
 }
