@@ -25,6 +25,7 @@ class EducationResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('degree')
                     ->maxLength(255)
+                    ->columnSpanFull()
                     ->default(null),
                 Forms\Components\TextInput::make('institution')
                     ->maxLength(255)
@@ -32,7 +33,9 @@ class EducationResource extends Resource
                 Forms\Components\TextInput::make('major')
                     ->maxLength(255)
                     ->default(null),
-                Forms\Components\DatePicker::make('year')
+                Forms\Components\DatePicker::make('start_date')
+                    ->default(null),
+                Forms\Components\DatePicker::make('end_date')
                     ->default(null),
             ]);
     }
@@ -46,8 +49,6 @@ class EducationResource extends Resource
                 Tables\Columns\TextColumn::make('institution')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('major')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('year')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -64,6 +65,7 @@ class EducationResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateHardskill extends CreateRecord
 {
     protected static string $resource = HardskillResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

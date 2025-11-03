@@ -17,4 +17,9 @@ class EditHardskill extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+    // redirect
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

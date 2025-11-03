@@ -23,7 +23,7 @@ class PageController extends Controller
         $achievements = Achievement::orderBy('date', 'desc')->get();
         $hard_skills = \App\Models\Hardskill::all();
         $soft_skills = \App\Models\Softskill::all();
-        $projects = Project::all();
+        $projects = Project::orderBy('created_at', 'desc')->get();
         return view('pages.index', compact(
             'developer_name',
             'developer_title',

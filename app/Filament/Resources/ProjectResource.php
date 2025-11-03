@@ -37,9 +37,21 @@ class ProjectResource extends Resource
                 Forms\Components\TextInput::make('project_name')
                     ->maxLength(255)
                     ->default(null),
-                    Forms\Components\TextInput::make('technology')
-                    ->maxLength(255)
-                    ->default(null),
+                                Forms\Components\TagsInput::make('technology')
+                ->placeholder('Add a technology')
+                ->separator(',')
+                ->splitKeys(['Tab', ' '])
+                ->default([])
+                ->afterStateUpdated(function ($state, $set) {
+                    // Pastikan state selalu array
+                    if (is_string($state)) {
+                        $state = array_map('trim', explode(',', $state));
+                    }
+                    $set('technology', $state);
+                })
+                ->dehydrateStateUsing(fn ($state) => 
+                    is_array($state) ? $state : array_map('trim', explode(',', $state))
+                ),
                     Forms\Components\TextInput::make('link')
                     ->maxLength(255)
                     ->columnSpanFull()
@@ -69,7 +81,6 @@ class ProjectResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('technology')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('link')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')

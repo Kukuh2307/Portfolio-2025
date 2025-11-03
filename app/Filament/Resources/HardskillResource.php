@@ -36,6 +36,7 @@ class HardskillResource extends Resource
                         'framework' => 'Framework',
                         'library' => 'Library',
                         'operating-system' => 'Operating System',
+                        'version-control' => 'Version Control',
                         'programming-language' => 'Programming Language',
                         'other' => 'Other',
                     ])
@@ -48,7 +49,6 @@ class HardskillResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('skill_name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('category'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -64,6 +64,7 @@ class HardskillResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
