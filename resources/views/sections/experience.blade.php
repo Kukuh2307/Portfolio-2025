@@ -2,6 +2,7 @@
      EXPERIENCE SECTION (Enhanced Aurora Style)
      ============================================================================ -->
 <section id="experience" class="relative py-24 px-4 bg-gradient-to-b from-slate-900 via-slate-800/80 to-slate-900 overflow-hidden">
+    
 
     <!-- Aurora Background Effect -->
     <div class="absolute inset-0 pointer-events-none">
