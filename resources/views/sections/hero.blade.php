@@ -26,7 +26,7 @@
     <div class="absolute top-40 right-20 w-4 h-4 bg-blue-400 rounded-full opacity-30 float-element" style="animation-delay: 1s;"></div>
     <div class="absolute bottom-32 left-20 w-8 h-8 bg-purple-400 rounded-full opacity-20 float-element" style="animation-delay: 2s;"></div>
     
-    <div class="reveal max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
         <!-- Text Content -->
         <div class="lg:col-span-7 text-center lg:text-left z-10 text-container">
             
