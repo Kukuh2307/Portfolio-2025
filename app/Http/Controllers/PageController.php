@@ -21,6 +21,8 @@ class PageController extends Controller
         $organizations = Organization::all();
         $educations = Education::orderBy('start_date', 'desc')->get();
         $achievements = Achievement::orderBy('date', 'desc')->get();
+        $hard_skills = \App\Models\Hardskill::all();
+        $soft_skills = \App\Models\Softskill::all();
         $projects = Project::all();
         return view('pages.index', compact(
             'developer_name',
@@ -31,6 +33,8 @@ class PageController extends Controller
             ,'organizations',
             'educations'
             ,'achievements'
+            ,'hard_skills'
+            ,'soft_skills'
             ,'projects'
         ));
     }
