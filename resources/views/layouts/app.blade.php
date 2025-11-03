@@ -227,70 +227,7 @@ $social_links = [
     
     
 </head>
-<style>
-            * {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .gradient-accent {
-            background: linear-gradient(135deg, #00D9FF 0%, #00B8E6 100%);
-        }
-        
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .hover-lift:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 217, 255, 0.15);
-        }
-        
-        .project-card-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.9);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-            text-align: center;
-        }
-        
-        .project-card:hover .project-card-overlay {
-            opacity: 1;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, #00D9FF, #00B8E6);
-        }
-        
-        @media (max-width: 768px) {
-            .timeline::before {
-                left: 0;
-                width: 2px;
-            }
-        }
-</style>
+
 
 <body class="bg-slate-900 text-gray-100" x-data="{ mobileMenuOpen: false }">
     
@@ -299,8 +236,9 @@ $social_links = [
     @yield('content')
 
     @include('partials.footer')
-    <script src="{{ asset('js/custom') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script>
         AOS.init();
     </script>

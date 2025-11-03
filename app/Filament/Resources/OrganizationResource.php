@@ -78,6 +78,10 @@ class OrganizationResource extends Resource
                     ->searchable()
                     ->sortable(),
                 
+                Tables\Columns\TextColumn::make('description')
+                    ->label('Deskripsi')
+                    ->searchable()
+                    ->sortable(),
                 
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Dibuat')
