@@ -22,12 +22,11 @@ class OrganizationResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-                Forms\Components\Section::make('Informasi Organisasi')
                     ->schema([
                         Forms\Components\TextInput::make('position')
                             ->label('Posisi/Jabatan')
                             ->required()
+                            ->columnSpanFull()
                             ->maxLength(255)
                             ->placeholder('Contoh: Sekretaris, Volunteer, dll.'),
                         
@@ -57,10 +56,8 @@ class OrganizationResource extends Resource
                         'redo',
                         'undo'
                         ]),
-                    ])
-                    ->columns(2),
-            ]);
-    }
+                    ]);
+                }
 
     public static function table(Table $table): Table
     {

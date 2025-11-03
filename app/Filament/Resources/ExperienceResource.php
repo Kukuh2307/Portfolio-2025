@@ -17,7 +17,7 @@ class ExperienceResource extends Resource
 {
     protected static ?string $model = Experience::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-m-adjustments-horizontal';
 
     public static function form(Form $form): Form
     {
