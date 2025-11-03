@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
+use App\Models\Education;
 use App\Models\Achievement;
+use App\Models\Organization;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -15,9 +18,10 @@ class PageController extends Controller
         $developer_title = $profile->title;
         $profile_image = $profile->image;
         $developer_bio = $profile->bio;
-        $organizations = \App\Models\Organization::all();
-        $educations = \App\Models\Education::orderBy('start_date', 'desc')->get();
+        $organizations = Organization::all();
+        $educations = Education::orderBy('start_date', 'desc')->get();
         $achievements = Achievement::orderBy('date', 'desc')->get();
+        $projects = Project::all();
         return view('pages.index', compact(
             'developer_name',
             'developer_title',
@@ -27,6 +31,7 @@ class PageController extends Controller
             ,'organizations',
             'educations'
             ,'achievements'
+            ,'projects'
         ));
     }
 }

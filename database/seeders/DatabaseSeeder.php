@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             // ExperienceTableSeeder::class,
             // EducationTableSeeder::class,
             // OrganizationTableSeeder::class
-            AchievementTableSeeder::class,
+            // AchievementTableSeeder::class,
+            ProjectTableSeeder::class,
         ]);
     }
 }

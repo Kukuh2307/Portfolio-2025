@@ -15,4 +15,9 @@ class Project extends Model
         'image',
         'link',
     ];
+    
+    protected $casts = [
+        'technology' => 'array',
+    ];
+
 }
