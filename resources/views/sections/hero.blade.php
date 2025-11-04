@@ -26,7 +26,7 @@
     <div class="absolute top-40 right-20 w-4 h-4 bg-blue-400 rounded-full opacity-30 float-element" style="animation-delay: 1s;"></div>
     <div class="absolute bottom-32 left-20 w-8 h-8 bg-purple-400 rounded-full opacity-20 float-element" style="animation-delay: 2s;"></div>
     
-    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">
         <!-- Text Content -->
         <div class="lg:col-span-7 text-center lg:text-left z-10 text-container">
             
@@ -84,44 +84,41 @@
             </div>
         </div>
         
-        <!-- Profile Image & Stats -->
-        <div class="hidden lg:col-span-5 lg:flex justify-center" style="animation: text-slide-in 0.8s ease-out 0.4s forwards; opacity: 0;">
-            <div class="relative">
-                <!-- Profile Image Container -->
-                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-                    <!-- Background Glow -->
-                    <div class="absolute inset-0 bg-gradient-to-r from-accent to-blue-500 rounded-full blur-xl opacity-20 profile-glow"></div>
-                    
-                    <!-- Profile Image -->
-                    <div class="profile-image-wrapper relative w-full h-full rounded-full overflow-hidden border-4 border-slate-700/50 shadow-2xl">
-                        <img 
-                            src="{{ asset('storage/'.$profile_image) }}" 
-                            alt="{{ $developer_name }}"
-                            class="w-full h-full object-cover"
-                            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjMzQ0MDU2Ii8+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjgwIiByPSIzMCIgZmlsbD0iIzk0QTRCRSIvPgo8cmVjdCB4PSI2MCIgeT0iMTIwIiB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiM5NEE0QkUiLz4KPC9zdmc+Cg=='"
-                        >
-                    </div>
-                    
-                    <!-- Floating Badge -->
-                    <div class="absolute -bottom-2 -right-2 bg-accent text-slate-900 px-4 py-2 rounded-full font-bold text-sm shadow-lg floating-badge">
-                        Tersedia untuk Projek
-                    </div>
-                </div>
+        <!-- Astronaut Section -->
+        <div class="hidden lg:col-span-5 md:flex justify-center items-center relative">
+            <div class="relative astronaut-container">
+                <!-- Background Glow Effect -->
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl opacity-30 animate-pulse"></div>
                 
-                <!-- Experience Stats -->
-                <div class="stat-card absolute -left-4 top-8 bg-slate-800/80 backdrop-blur-sm border border-slate-700 rounded-2xl p-4 shadow-2xl hover:border-accent/50">
-                    <div class="text-center">
-                        <div class="text-2xl font-bold text-white">3+</div>
-                        <div class="text-xs text-gray-400">Tahun Pengalaman</div>
-                    </div>
-                </div>
+                <!-- Floating Stars -->
+                <div class="absolute -top-4 -left-4 w-3 h-3 bg-white rounded-full opacity-60 animate-twinkle" style="animation-delay: 0s;"></div>
+                <div class="absolute top-12 -right-2 w-2 h-2 bg-yellow-200 rounded-full opacity-80 animate-twinkle" style="animation-delay: 1.5s;"></div>
+                <div class="absolute -bottom-2 left-12 w-2 h-2 bg-blue-300 rounded-full opacity-70 animate-twinkle" style="animation-delay: 2.5s;"></div>
                 
-                <!-- Projects Stats -->
-                <div class="stat-card absolute -right-4 bottom-20 bg-slate-800/80 backdrop-blur-sm border border-slate-700 rounded-2xl p-4 shadow-2xl hover:border-accent/50" style="animation-delay: 1s;">
-                    <div class="text-center">
-                        <div class="text-2xl font-bold text-white">50+</div>
-                        <div class="text-xs text-gray-400">Proyek Selesai</div>
-                    </div>
+                <!-- Astronaut Image with Floating Animation -->
+                <div class="relative astronaut-float">
+                    <img 
+                        src="{{ asset('img/astronot3.png') }}" 
+                        alt="Astronaut Floating in Space"
+                        class="w-80 h-80 md:w-96 md:h-96 lg:w-[600px] lg:h-[600px] object-contain drop-shadow-2xl astronaut-image"
+                        onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjMTgzMDVBIi8+CjxjaXJjbGUgY3g9IjI1MCIgY3k9IjE1MCIgcj0iNjAiIGZpbGw9IiNENEUxRjIiLz4KPHJlY3QgeD0iMTUwIiB5PSIyMTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRDRFMUYyIi8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE4MCIgcj0iMjAiIGZpbGw9IiMxRjI2NDQiLz4KPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTgwIiByPSIyMCIgZmlsbD0iIzFGMjY0NCIvPgo8L3N2Zz4K'"
+                    >
+                </div>
+            </div>
+            
+            <!-- Experience Stats -->
+            <div class="stat-card absolute left-12 top-12 bg-slate-800/80 backdrop-blur-sm border border-slate-700 rounded-2xl p-4 shadow-2xl hover:border-accent/50 transition-all z-10 shadow-md shadow-accent/50" style="animation-delay: 0.5s;">
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-white">3+</div>
+                    <div class="text-xs text-gray-400">Tahun Pengalaman</div>
+                </div>
+            </div>
+            
+            <!-- Projects Stats -->
+            <div class="stat-card absolute right-8 bottom-28 bg-slate-800/80 backdrop-blur-sm border border-slate-700 rounded-2xl p-4 shadow-2xl hover:border-accent/50 transition-all z-10 shadow-md shadow-accent/50" style="animation-delay: 1s;">
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-white">50+</div>
+                    <div class="text-xs text-gray-400">Proyek Selesai</div>
                 </div>
             </div>
         </div>
