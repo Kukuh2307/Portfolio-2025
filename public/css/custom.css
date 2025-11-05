@@ -631,3 +631,9 @@ svg.dot-animation {
     height: 280px !important;
   }
 }
+
+/* EXPERIENCE */
+.experience-section{
+    bacground-image:url('/img/bg2.jpeg');
+    bacground-color:salmond;
+}

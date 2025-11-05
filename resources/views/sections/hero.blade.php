@@ -2,6 +2,9 @@
 
     <!-- Aurora Background -->
     <div class="absolute inset-0 aurora-bg"></div>
+
+    {{-- bg gradient filter --}}
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-800/10 to-slate-900 z-10"></div>
     
     <!-- Background Elements with Enhanced Glow -->
     <div class="absolute top-0 right-0 w-96 h-96 bg-accent opacity-5 rounded-full blur-3xl glow-orb"></div>

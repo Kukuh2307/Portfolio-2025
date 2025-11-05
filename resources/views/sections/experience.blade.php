@@ -1,15 +1,15 @@
 <!-- ============================================================================
      EXPERIENCE SECTION (Enhanced Aurora Style)
      ============================================================================ -->
-<section id="experience" class="relative py-24 px-4 bg-gradient-to-b from-slate-900 via-slate-800/80 to-slate-900 overflow-hidden">
+<section id="experience" class="relative py-24 px-4 bg-gradient-to-b from-slate-900 via-slate-800/40 to-slate-900 overflow-hidden">
     
 
-    <!-- Aurora Background Effect -->
+    {{-- <!-- Aurora Background Effect -->
     <div class="absolute inset-0 pointer-events-none">
         <div class="aurora-bg opacity-40"></div>
-        <div class="absolute w-72 h-72 bg-blue-500/20 blur-3xl rounded-full top-10 left-10 animate-pulse-slow"></div>
+        <div class="absolute w-72 h-72 bg-blue-500/20 blur-3xl rounded-full top-60 left-10 animate-pulse-slow"></div>
         <div class="absolute w-96 h-96 bg-indigo-500/20 blur-3xl rounded-full bottom-10 right-10 animate-pulse-slow"></div>
-    </div>
+    </div> --}}
 
     <div class="max-w-6xl mx-auto relative z-10">
         <!-- Section Title -->
