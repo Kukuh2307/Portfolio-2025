@@ -6,8 +6,8 @@
     <!-- Ambient Background Aurora -->
     <div class="absolute inset-0 pointer-events-none">
         <div class="aurora-bg opacity-40"></div>
-        <div class="absolute w-96 h-96 bg-cyan-500/20 blur-3xl rounded-full top-10 left-10 animate-pulse-slow"></div>
-        <div class="absolute w-80 h-80 bg-blue-500/20 blur-3xl rounded-full bottom-10 right-10 animate-pulse-slow delay-1000"></div>
+        <div class="absolute w-96 h-96 bg-cyan-500/20 blur-3xl rounded-full top-36 left-10 animate-pulse-slow"></div>
+        <div class="absolute w-80 h-80 bg-blue-500/20 blur-3xl rounded-full bottom-36 right-10 animate-pulse-slow delay-1000"></div>
     </div>
 
     <div class="max-w-6xl mx-auto relative z-10">

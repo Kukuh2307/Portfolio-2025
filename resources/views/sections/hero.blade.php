@@ -35,7 +35,7 @@
             
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight hero-title">
                 <span class="block mb-2 text-white">{{ $developer_name }}</span>
-                <span class="text-4xl bg-gradient-to-r from-accent to-blue-500 bg-clip-text text-transparent text-gradient-animated">{{ $developer_title }}</span>
+                <span class="text-4xl bg-gradient-to-r from-accent to-fuchsia-500 bg-clip-text text-transparent text-gradient-animated">{{ $developer_title }}</span>
             </h1>
             
             <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl lg:max-w-none hero-subtitle">
