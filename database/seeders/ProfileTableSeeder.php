@@ -16,6 +16,10 @@ class ProfileTableSeeder extends Seeder
         Profile::create([
             'name' => 'Kukhuh Agung Prasetyo',
             'title' => 'Full Stack Developer',
+            'subtitle' => 'Passionate developer with experience in building web applications.',
+            'email' => 'kukhuhagung@gmail.com',
+            'phone' => '08123456789',
+            'address' => 'Jl. Jenderal Sudirman No. 1, Jakarta Selatan',
             'bio' => 'Passionate developer with experience in building web applications.',
             'image' => 'profiles/default.jpg',
         ]);

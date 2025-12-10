@@ -18,6 +18,10 @@ class PageController extends Controller
         $developer_title = $profile->title;
         $profile_image = $profile->image;
         $developer_bio = $profile->bio;
+        $developer_subtitle = $profile->subtitle;
+        $developer_email = $profile->email;
+        $developer_phone = $profile->phone;
+        $developer_address = $profile->address;
         $organizations = Organization::all();
         $educations = Education::orderBy('start_date', 'desc')->get();
         $achievements = Achievement::orderBy('date', 'desc')->get();
@@ -28,14 +32,18 @@ class PageController extends Controller
             'developer_name',
             'developer_title',
             'profile_image',
+            'developer_subtitle',
+            'developer_email',
+            'developer_phone',
+            'developer_address',
             'developer_bio',
-            'experiences'
-            ,'organizations',
-            'educations'
-            ,'achievements'
-            ,'hard_skills'
-            ,'soft_skills'
-            ,'projects'
+            'experiences',
+            'organizations',
+            'educations',
+            'achievements',
+            'hard_skills',
+            'soft_skills',
+            'projects'
         ));
     }
 }

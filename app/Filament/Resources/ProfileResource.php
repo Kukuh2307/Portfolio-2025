@@ -33,14 +33,26 @@ class ProfileResource extends Resource
                     ->placeholder('Upload Profile Image')
                     ->hint('Maximum file size: 2MB.')
                     ->default(null)
-                    ->dehydrated(fn ($state) => filled($state)),
+                    ->dehydrated(fn($state) => filled($state)),
                 Forms\Components\TextInput::make('name')
                     ->maxLength(255)
                     ->default(null),
                 Forms\Components\TextInput::make('title')
                     ->maxLength(255)
                     ->default(null),
-                Forms\Components\RichEditor ::make('bio')
+                Forms\Components\TextInput::make('subtitle')
+                    ->maxLength(255)
+                    ->default(null),
+                Forms\Components\TextInput::make('email')
+                    ->maxLength(255)
+                    ->default(null),
+                Forms\Components\TextInput::make('phone')
+                    ->maxLength(255)
+                    ->default(null),
+                Forms\Components\TextInput::make('address')
+                    ->maxLength(255)
+                    ->default(null),
+                Forms\Components\RichEditor::make('bio')
                     ->columnSpanFull()
                     ->default(null)
                     ->toolbarButtons([

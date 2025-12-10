@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('hardskills', function (Blueprint $table) {
             $table->id();
             $table->string('skill_name')->nullable();
-            $table->enum('category', ['back-end', 'front-end', 'design', 'network', 'cybersecurity','framework','library','operating-system','programming-language','other'])->nullable();
+            $table->enum('category', ['back-end', 'front-end', 'version-control', 'devops', 'database', 'design', 'network', 'cybersecurity', 'framework', 'library', 'operating-system', 'programming-language', 'other'])->nullable();
             $table->timestamps();
         });
     }

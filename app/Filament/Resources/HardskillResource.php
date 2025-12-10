@@ -34,6 +34,7 @@ class HardskillResource extends Resource
                         'network' => 'Network',
                         'cybersecurity' => 'Cybersecurity',
                         'framework' => 'Framework',
+                        'devops' => 'DevOps',
                         'library' => 'Library',
                         'operating-system' => 'Operating System',
                         'version-control' => 'Version Control',
@@ -64,7 +65,7 @@ class HardskillResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),    
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
