@@ -165,7 +165,7 @@ $social_links = [['name' => 'LinkedIn', 'url' => 'https://linkedin.com/in/budisa
         rel="stylesheet">
 
     <!-- favicon -->
-    <link rel="icon" href="{{ asset('favicon_io/favicon.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('/favicon.ico') }}">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
