@@ -1,0 +1,39 @@
+name: Deploy Laravel to Shared Hosting
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            APP_DIR=${{ secrets.APP_PATH }}
+
+            echo "Masuk direktori aplikasi"
+            cd $APP_DIR
+
+            echo "Update source code"
+            git fetch origin
+            git reset --hard origin/main
+
+            echo "Install dependency production"
+            composer install --no-dev --optimize-autoloader
+
+            echo "Clear Laravel cache"
+            php artisan optimize:clear
+
+            echo "Deploy selesai �"
