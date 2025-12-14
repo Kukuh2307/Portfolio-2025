@@ -22,7 +22,7 @@ A dynamic, space-themed personal portfolio website built with **Laravel** and **
 
 ## � Tech Stack
 
-* **Framework:** [Laravel 10/11](https://laravel.com)
+* **Framework:** [Laravel 12](https://laravel.com)
 * **Admin Panel:** [Filament PHP](https://filamentphp.com)
 * **Frontend Styling:** Tailwind CSS
 * **Database:** MySQL
