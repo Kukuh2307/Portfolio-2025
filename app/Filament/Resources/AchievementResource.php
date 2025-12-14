@@ -25,14 +25,14 @@ class AchievementResource extends Resource
             ->schema([
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->required()
+                    // ->required()
                     ->maxSize(2048)
                     ->directory('achievements')
                     ->imagePreviewHeight('200px')
                     ->placeholder('Upload Achievement Image')
                     ->hint('Maximum file size: 2MB.')
                     ->default(null)
-                    ->dehydrated(fn ($state) => filled($state))
+                    ->dehydrated(fn($state) => filled($state))
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('title')
                     ->maxLength(255)
@@ -40,24 +40,24 @@ class AchievementResource extends Resource
                 Forms\Components\TextInput::make('organizer')
                     ->maxLength(255)
                     ->default(null),
-                    Forms\Components\TextInput::make('link')
+                Forms\Components\TextInput::make('link')
                     ->maxLength(255)
                     ->default(null),
-                    Forms\Components\DatePicker::make('date'),
-                    Forms\Components\RichEditor::make('description')
-                        ->columnSpanFull()
-                        ->default(null)
-                        ->toolbarButtons([
-                            'bold',
-                            'italic',
-                            'underline',
-                            'strike',
-                            'bulletList',
-                            'orderedList',
-                            'link',
-                            'redo',
-                            'undo'
-                        ]),
+                Forms\Components\DatePicker::make('date'),
+                Forms\Components\RichEditor::make('description')
+                    ->columnSpanFull()
+                    ->default(null)
+                    ->toolbarButtons([
+                        'bold',
+                        'italic',
+                        'underline',
+                        'strike',
+                        'bulletList',
+                        'orderedList',
+                        'link',
+                        'redo',
+                        'undo'
+                    ]),
             ]);
     }
 

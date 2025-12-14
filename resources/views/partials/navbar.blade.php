@@ -16,6 +16,7 @@
                 <div class="hidden md:flex space-x-8">
                     <a href="#hero" class="hover:text-accent transition">Hero</a>
                     <a href="#experience" class="hover:text-accent transition">Experience</a>
+                    <a href="#education" class="hover:text-accent transition">Education</a>
                     <a href="#projects" class="hover:text-accent transition">Projects</a>
                     <a href="#skills" class="hover:text-accent transition">Skills</a>
                     <a href="#contact" class="hover:text-accent transition">Contact</a>
@@ -36,6 +37,7 @@
             <div x-show="mobileMenuOpen" x-transition class="md:hidden pb-4 space-y-2">
                 <a href="#hero" class="block py-2 hover:text-accent transition">Hero</a>
                 <a href="#experience" class="block py-2 hover:text-accent transition">Experience</a>
+                <a href="#education" class="block py-2 hover:text-accent transition">Education</a>
                 <a href="#projects" class="block py-2 hover:text-accent transition">Projects</a>
                 <a href="#skills" class="block py-2 hover:text-accent transition">Skills</a>
                 <a href="#contact" class="block py-2 hover:text-accent transition">Contact</a>
