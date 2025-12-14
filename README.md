@@ -39,8 +39,8 @@ Follow these steps to set up the project locally:
 
 1.  **Clone the repository**
     ```bash
-    git clone [https://github.com/username/repo-name.git](https://github.com/username/repo-name.git)
-    cd repo-name
+    git clone [https://github.com/Kukuh2307/Portfolio-2025.git)
+    cd Portfolio-2025
     ```
 
 2.  **Install Dependencies**
