@@ -35,7 +35,7 @@
 
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">
         <!-- Text Content -->
-        <div class="lg:col-span-7 text-center lg:text-left z-10 text-container">
+        <div class="lg:col-span-7 text-center lg:text-left z-10 text-container pl-8">
 
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight hero-title">
                 <span class="block mb-2 text-white">{{ $developer_name }}</span>
