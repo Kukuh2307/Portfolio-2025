@@ -20,31 +20,31 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
+          script_stop: true
           script: |
             APP_DIR=${{ secrets.APP_PATH }}
 
-            echo "Masuk direktori aplikasi"
+            echo "� Memulai Deploy ke $APP_DIR"
             cd $APP_DIR
 
-            echo "Update source code"
+            echo "⬇️ Update source code"
             git fetch origin
             git reset --hard origin/main
 
-            echo "Install dependency production"
+            echo "� Install dependency backend"
             composer install --no-dev --optimize-autoloader
 
-            echo "Clear Laravel cache"
+            echo "� Clear Laravel Cache (Application Level)"
             php artisan optimize:clear
 
-            echo "Cache ulang konfigurasi"
+            echo "� Cache Ulang Config & Route"
             php artisan config:cache
+            php artisan event:cache
             php artisan route:cache
             php artisan view:cache
 
-            echo "Reload PHP-FPM"
-            sudo service php8.4-fpm reload
+            echo "� Build Frontend Assets"
+            npm install
+            npm run build
 
-            echo "Restart Queue Worker"
-            php artisan queue:restart
-
-            echo "Deploy selesai 🎉"
+            echo "✅ Deploy selesai �"
