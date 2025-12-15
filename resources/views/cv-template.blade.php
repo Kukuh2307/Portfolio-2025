@@ -302,6 +302,28 @@
         </div>
     @endif
 
+    <!-- TRAINING & CERTIFICATIONS -->
+    @if ($trainings->count() > 0)
+        <div class="section">
+            <h2>Training & Certifications</h2>
+            @foreach ($trainings as $training)
+                <div class="experience-item">
+                    <h3>{{ $training->training_name }}</h3>
+                    <div class="company">{{ $training->organizer }} | <span
+                            class="date">{{ date('M Y', strtotime($training->start_date)) }} -
+                            {{ $training->end_date ? date('M Y', strtotime($training->end_date)) : 'Present' }}</span>
+                    </div>
+                    @if ($training->description)
+                        <p class="text-justify">{{ strip_tags($training->description) }}</p>
+                    @endif
+                    @if ($training->certificate_link)
+                        <p style="font-size: 10pt; color: #333333;">Certificate: {{ $training->certificate_link }}</p>
+                    @endif
+                </div>
+            @endforeach
+        </div>
+    @endif
+
     <!-- PROJECTS -->
     @if ($projects->count() > 0)
         <div class="section">

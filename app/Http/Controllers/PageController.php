@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Models\Education;
 use App\Models\Achievement;
 use App\Models\Organization;
+use App\Models\Training;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -28,6 +29,7 @@ class PageController extends Controller
         $hard_skills = \App\Models\Hardskill::all();
         $soft_skills = \App\Models\Softskill::all();
         $projects = Project::orderBy('created_at', 'desc')->get();
+        $trainings = Training::orderBy('start_date', 'desc')->get();
         return view('pages.index', compact(
             'developer_name',
             'developer_title',
@@ -43,7 +45,8 @@ class PageController extends Controller
             'achievements',
             'hard_skills',
             'soft_skills',
-            'projects'
+            'projects',
+            'trainings'
         ));
     }
 }

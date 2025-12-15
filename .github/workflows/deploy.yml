@@ -32,18 +32,23 @@ jobs:
             git fetch origin
             git reset --hard origin/main
 
-            echo "� Install dependency backend"
+            echo " Install dependency backend"
             # Gunakan --no-interaction agar tidak hang tanya Yes/No
             composer install --no-dev --optimize-autoloader --no-interaction
 
-            echo "� Clear All Laravel Cache"
+            echo "🧹 Clear All Laravel Cache"
             php artisan optimize:clear
             php artisan config:clear
             php artisan route:clear
             php artisan view:clear
 
+            # --- IMPORTANT: MANUAL MIGRATION REQUIRED ---
+            # Database migrations are NOT run automatically to prevent data loss
+            # After deployment, SSH to server and run: php artisan migrate
+            # This applies to new features like trainings table
+
             # --- BAGIAN PENTING UNTUK SHARED HOSTING ---
-            echo "� Trigger Reload PHP Process"
+            echo "🔄 Trigger Reload PHP Process"
             # Perintah touch mengubah tanggal modifikasi file, 
             # memaksa server membaca ulang file ini dari disk ke RAM
             touch public/index.php
@@ -51,4 +56,4 @@ jobs:
             # Jika ada file .htaccess, touch juga untuk memastikan server web reload config
             touch .htaccess
 
-            echo "✅ Deploy selesai �"
+            echo "✅ Deploy selesai 🚀"

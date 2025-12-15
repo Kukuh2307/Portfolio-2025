@@ -8,5 +8,6 @@
     @include('sections.education_organization')
     @include('sections.skill')
     @include('sections.achievement')
+    @include('sections.training')
     @include('sections.project')
 @endsection

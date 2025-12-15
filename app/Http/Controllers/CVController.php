@@ -11,6 +11,7 @@ use App\Models\Softskill;
 use App\Models\Achievement;
 use App\Models\Organization;
 use App\Models\SocialMedia;
+use App\Models\Training;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Response;
 
@@ -36,6 +37,7 @@ class CVController extends Controller
         $achievements = Achievement::orderBy('date', 'desc')->get();
         $organizations = Organization::all();
         $socialMedia = SocialMedia::all();
+        $trainings = Training::orderBy('start_date', 'desc')->get();
 
         // Prepare data for template
         $data = compact(
@@ -47,7 +49,8 @@ class CVController extends Controller
             'softskills',
             'achievements',
             'organizations',
-            'socialMedia'
+            'socialMedia',
+            'trainings'
         );
 
         // Generate PDF with ATS-friendly template
@@ -81,6 +84,7 @@ class CVController extends Controller
         $achievements = Achievement::orderBy('date', 'desc')->get();
         $organizations = Organization::all();
         $socialMedia = SocialMedia::all();
+        $trainings = Training::orderBy('start_date', 'desc')->get();
 
         $data = compact(
             'profile',
@@ -91,7 +95,8 @@ class CVController extends Controller
             'softskills',
             'achievements',
             'organizations',
-            'socialMedia'
+            'socialMedia',
+            'trainings'
         );
 
         $pdf = Pdf::loadView('cv-template', $data)
