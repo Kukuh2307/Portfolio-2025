@@ -20,20 +20,35 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
+          # Tambahkan ini agar jika ada 1 command error, statusnya jadi FAILED (bukan success palsu)
+          script_stop: true
           script: |
             APP_DIR=${{ secrets.APP_PATH }}
 
-            echo "Masuk direktori aplikasi"
+            echo "� Masuk direktori aplikasi: $APP_DIR"
             cd $APP_DIR
 
-            echo "Update source code"
+            echo "⬇️ Update source code"
             git fetch origin
             git reset --hard origin/main
 
-            echo "Install dependency production"
-            composer install --no-dev --optimize-autoloader
+            echo "� Install dependency backend"
+            # Gunakan --no-interaction agar tidak hang tanya Yes/No
+            composer install --no-dev --optimize-autoloader --no-interaction
 
-            echo "Clear Laravel cache"
+            echo "� Clear All Laravel Cache"
             php artisan optimize:clear
+            php artisan config:clear
+            php artisan route:clear
+            php artisan view:clear
 
-            echo "Deploy selesai �"
+            # --- BAGIAN PENTING UNTUK SHARED HOSTING ---
+            echo "� Trigger Reload PHP Process"
+            # Perintah touch mengubah tanggal modifikasi file, 
+            # memaksa server membaca ulang file ini dari disk ke RAM
+            touch public/index.php
+
+            # Jika ada file .htaccess, touch juga untuk memastikan server web reload config
+            touch .htaccess
+
+            echo "✅ Deploy selesai �"
