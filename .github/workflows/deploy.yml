@@ -1,4 +1,4 @@
-name: Deploy Laravel to Shared Hosting CI/CD
+name: Deploy Laravel to Shared Hosting
 
 on:
   push:
@@ -20,31 +20,20 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          script_stop: true
           script: |
             APP_DIR=${{ secrets.APP_PATH }}
 
-            echo "� Memulai Deploy ke $APP_DIR"
+            echo "Masuk direktori aplikasi"
             cd $APP_DIR
 
-            echo "⬇️ Update source code"
+            echo "Update source code"
             git fetch origin
             git reset --hard origin/main
 
-            echo "� Install dependency backend"
+            echo "Install dependency production"
             composer install --no-dev --optimize-autoloader
 
-            echo "� Clear Laravel Cache (Application Level)"
+            echo "Clear Laravel cache"
             php artisan optimize:clear
 
-            echo "� Cache Ulang Config & Route"
-            php artisan config:cache
-            php artisan event:cache
-            php artisan route:cache
-            php artisan view:cache
-
-            echo "� Build Frontend Assets"
-            npm install
-            npm run build
-
-            echo "✅ Deploy selesai �"
+            echo "Deploy selesai �"
